@@ -1,38 +1,95 @@
-.App {
+body {
+  background-color: #f9f7fd;
+  font-family: "Roboto";
+}
+.Weather-Box {
+  background-color: white;
+  color: #666666;
+  max-width: 600px;
+  margin: 45px auto;
+  padding: 30px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+  border-radius: 16px;
+}
+header {
+  border-bottom: solid 1px #f9f7fe;
+  padding: 0 0 30px 0;
+}
+.search-text {
+  background-color: #f9f7fd;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  width: 80%;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+.search-button {
+  background-color: #885df1;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 30px;
+  margin-left: 5px;
+}
+.Weather-Content {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+.City-name {
+  margin: 0;
+  font-size: 38px;
+  line-height: 48px;
+  color: black;
+}
+.City-details {
+  color: #a8a6b4;
+  line-height: 24px;
+  font-weight: 500;
+}
+.City-details strong {
+  color: #f65281;
+}
+.actual-temperature {
+  font-size: 88px;
+  font-weight: bold;
+  color: black;
+}
+.temperature-icone {
+  font-size: 50px;
+  float: inline-start;
+  margin-right: 5px;
+}
+.temperature-celsius {
+  font-size: 28px;
+  float: inline-end;
+  margin-top: 10px;
+  color: black;
+}
+footer {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather-forecast {
+  text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
 }
-
-.App-link {
-  color: #61dafb;
+.weather-forecast-date {
+  color: #a8a6b4;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather-forecast-icon {
+  padding: 10px 0;
+  width: 100%;
+}
+.weather-forecast-temperatures {
+  margin-bottom: 20px;
+  color: #f65281;
+}
+.weather-forecast-temperatures span {
+  margin: 0 10px;
+}
+.weather-forecast-temperature-high {
+  font-weight: bold;
 }
