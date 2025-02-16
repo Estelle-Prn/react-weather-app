@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Weather() {
+  let city = "Rome";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=04362ba118dbt14o9f7040e09062332b&units=metric`;
   function actualDate() {
     const date = new Date();
     const options = { weekday: "long" };
