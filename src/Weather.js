@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Weather() {
-  function searchWithApi() {
-    let city = "Rome";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=04362ba118dbt14o9f7040e09062332b&units=metric`;
-  }
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
+
   function actualDate() {
     const date = new Date();
     const options = { weekday: "long" };
@@ -21,15 +19,25 @@ export default function Weather() {
       return `${day} ${hour}:${minutes}`;
     }
   }
+  function searchWithApi() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=04362ba118dbt14o9f7040e09062332b&units=metric`;
+  }
+  function citySearch(event) {
+    setCity(event.target.value);
+  }
+  function citySubmit(event) {
+    event.preventDefault();
+  }
   return (
     <div className="Search-Show">
       <header>
-        <form className="search-block d-flex">
+        <form className="search-block d-flex" onSubmit={citySubmit} autoFocus>
           <input
             type="search"
             placeholder="Enter a City..."
             required
             className="search-text"
+            onChange={citySearch}
           />
           <input type="submit" value="Search" className="search-button" />
         </form>
@@ -37,7 +45,7 @@ export default function Weather() {
       <main>
         <div className="Weather-Content">
           <div>
-            <h1 className="City-name">Rome</h1>
+            <h1 className="City-name">{city}</h1>
             <p className="City-details">
               <span>{actualDate()}</span>,{" "}
               <span className="text-capitalize">Cloudy</span>
