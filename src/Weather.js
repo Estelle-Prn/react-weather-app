@@ -5,6 +5,27 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
 
+  function weatherDetailsCity(response) {
+    setWeather({
+      city: response.data.name,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      description: response.data.weather[0].description,
+    });
+  }
+  function searchWithApi() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a95c2c6739994ba4903e007ee817e7d1&units=metric`;
+    axios.get(searchWithApi).then(weatherDetailsCity);
+  }
+  function citySearch(event) {
+    setCity(event.target.value);
+  }
+  function citySubmit(event) {
+    event.preventDefault();
+    searchWithApi();
+  }
+
   function actualDate() {
     const date = new Date();
     const options = { weekday: "long" };
@@ -20,26 +41,7 @@ export default function Weather(props) {
       return `${day} ${hour}:${minutes}`;
     }
   }
-  function weatherDetailsCity(response) {
-    setWeather({
-      city: response.data.name,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      description: response.data.weather[0].description,
-    });
-  }
-  function searchWithApi() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=04362ba118dbt14o9f7040e09062332b&units=metric`;
-    axios.get(searchWithApi).then(weatherDetailsCity);
-  }
-  function citySearch(event) {
-    setCity(event.target.value);
-  }
-  function citySubmit(event) {
-    event.preventDefault();
-    searchWithApi();
-  }
+
   return (
     <div className="Search-Show">
       <header>
