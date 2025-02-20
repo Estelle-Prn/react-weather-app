@@ -45,7 +45,7 @@ export default function Weather(props) {
   return (
     <div className="Search-Show">
       <header>
-        <form className="search-block d-flex" autoFocus>
+        <form className="search-block d-flex" autoFocus onSubmit={citySubmit}>
           <input
             type="search"
             placeholder="Enter a City..."
@@ -53,12 +53,7 @@ export default function Weather(props) {
             className="search-text"
             onChange={citySearch}
           />
-          <input
-            type="submit"
-            value="Search"
-            className="search-button"
-            onSubmit={citySubmit}
-          />
+          <input type="submit" value="Search" className="search-button" />
         </form>
       </header>
       <main>
