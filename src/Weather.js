@@ -9,7 +9,7 @@ export default function Weather(props) {
     setWeather({
       loaded: true,
       city: response.data.name,
-      temperature: response.data.main.temp,
+      temperature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
@@ -42,7 +42,7 @@ export default function Weather(props) {
       return `${day} ${hour}:${minutes}`;
     }
   }
-  if (weatherDetailsCity.loaded) {
+  if (weather.loaded) {
     return (
       <div className="Search-Show">
         <header>
