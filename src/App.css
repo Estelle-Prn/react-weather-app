@@ -83,6 +83,9 @@ footer {
   padding: 10px 0;
   width: 100%;
 }
+.weather-description {
+  text-transform: capitalize;
+}
 .weather-forecast-temperatures {
   margin-bottom: 20px;
   color: #f65281;

@@ -13,6 +13,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
     });
   }
   function searchWithApi() {
@@ -67,7 +68,9 @@ export default function Weather(props) {
               <h1 className="City-name">{weather.city}</h1>
               <p className="City-details">
                 <span>{actualDate()}</span>,{" "}
-                <span className="text-capitalize">{weather.description}</span>
+                <span className="weather-description">
+                  {weather.description}
+                </span>
                 <br />
                 Humidity: <strong>{weather.humidity}%</strong>, Wind:
                 <strong> {weather.wind}km/h</strong>
@@ -75,7 +78,7 @@ export default function Weather(props) {
             </div>
             <div className="City-temperature">
               <span>
-                <img src="" className="temperature-icone" />
+                <img src={weather.icon} className="temperature-icone" />
               </span>
               <span className="actual-temperature">{weather.temperature}</span>
               <span className="temperature-celsius">°C</span>
