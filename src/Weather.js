@@ -7,6 +7,7 @@ export default function Weather(props) {
   const [weather, setWeather] = useState({ loaded: false });
 
   function weatherDetailsCity(response) {
+    console.log(response.data);
     setWeather({
       loaded: true,
       city: response.data.name,
@@ -14,7 +15,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
   function searchWithApi() {
