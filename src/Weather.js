@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ReactAnimatedWeather from "react-animated-weather";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -80,7 +79,11 @@ export default function Weather(props) {
             </div>
             <div className="City-temperature">
               <span>
-                <img src={weather.icon} className="temperature-icone" />
+                <img
+                  src={weather.icon}
+                  className="temperature-icone"
+                  alt="temp-icon"
+                />
               </span>
               <span className="actual-temperature">{weather.temperature}</span>
               <span className="temperature-celsius">°C</span>
